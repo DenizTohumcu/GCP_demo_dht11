@@ -139,4 +139,10 @@ class DHT11(object):
             self.either_edge_cb.cancel()
             self.either_edge_cb = None
 
+    def __iter__(self):
+        """
+        Support the iterator protocol.
+        """
+        return self
+
     
