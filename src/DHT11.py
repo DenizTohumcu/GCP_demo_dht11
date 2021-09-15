@@ -159,3 +159,5 @@ class DHT11(object):
     
 
     
+
+    
