@@ -130,4 +130,13 @@ class DHT11(object):
         self.pi.set_watchdog(self.gpio, 200)
         time.sleep(0.2)
     
+    def close(self):
+        """
+        Stop reading sensor, remove callbacks.
+        """
+        self.pi.set_watchdog(self.gpio, 0)
+        if self.either_edge_cb:
+            self.either_edge_cb.cancel()
+            self.either_edge_cb = None
+
     
