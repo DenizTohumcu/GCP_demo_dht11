@@ -120,4 +120,14 @@ class DHT11(object):
         """
         self.pi.set_watchdog(self.gpio, 0)
 
-        
+    def read(self):
+        """
+        Start reading over DHT11 sensor.
+        """
+        self.pi.write(self.gpio, pigpio.LOW)
+        time.sleep(0.017) # 17 ms
+        self.pi.set_mode(self.gpio, pigpio.INPUT)
+        self.pi.set_watchdog(self.gpio, 200)
+        time.sleep(0.2)
+    
+    
